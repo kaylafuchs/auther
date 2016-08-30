@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 app.config(function ($stateProvider) {
   $stateProvider.state('users', {
@@ -7,8 +7,8 @@ app.config(function ($stateProvider) {
     controller: 'UserListCtrl',
     resolve: {
       users: function (User) {
-        return User.fetchAll();
+        return User.fetchAll()
       }
     }
-  });
-});
+  })
+})

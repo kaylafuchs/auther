@@ -1,15 +1,15 @@
-'use strict';
+'use strict'
 
-var express = require('express');
-var router = express.Router();
-var path = require('path');
+var express = require('express')
+var router = express.Router()
+var path = require('path')
 
-var rootPath = path.join(__dirname, '..', '..');
+var rootPath = path.join(__dirname, '..', '..')
 
-var publicPath = path.join(rootPath, 'public');
+var publicPath = path.join(rootPath, 'public')
 
-router.use(express.static(publicPath));
+router.use(express.static(publicPath))
 
-router.use(express.static(rootPath));
+router.use(express.static(rootPath))
 
-module.exports = router;
+module.exports = router

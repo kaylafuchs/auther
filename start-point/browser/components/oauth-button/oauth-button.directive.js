@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 app.directive('oauthButton', function () {
   return {
@@ -8,4 +8,4 @@ app.directive('oauthButton', function () {
     restrict: 'E',
     templateUrl: '/browser/components/oauth-button/oauth-button.html'
   }
-});
+})

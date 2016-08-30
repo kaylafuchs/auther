@@ -1,8 +1,8 @@
-'use strict'; 
+'use strict'
 
-var Sequelize = require('sequelize');
+var Sequelize = require('sequelize')
 
-var db = require('../../_db');
+var db = require('../../_db')
 
 var Story = db.define('story', {
   title: {
@@ -11,6 +11,6 @@ var Story = db.define('story', {
     unique: true
   },
   paragraphs: Sequelize.ARRAY(Sequelize.TEXT)
-});
+})
 
-module.exports = Story;
+module.exports = Story

@@ -1,21 +1,21 @@
-'use strict';
+'use strict'
 
-var http = require('http');
+var http = require('http')
 
 function HttpError (status, message) {
-  var err = new Error(message || http.STATUS_CODES[status]);
-  err.status = status;
-  Object.setPrototypeOf(err, HttpError.prototype);
-  return err;
+  var err = new Error(message || http.STATUS_CODES[status])
+  err.status = status
+  Object.setPrototypeOf(err, HttpError.prototype)
+  return err
 }
 
-Object.setPrototypeOf(HttpError.prototype, Error.prototype);
+Object.setPrototypeOf(HttpError.prototype, Error.prototype)
 
 HttpError.prototype.middleware = function () {
-  var self = this;
+  var self = this
   return function (req, res, next) {
-    next(self);
+    next(self)
   }
-};
+}
 
-module.exports = HttpError;
+module.exports = HttpError

@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-var Sequelize = require('sequelize');
+var Sequelize = require('sequelize')
 
-var db = require('../../_db');
+var db = require('../../_db')
 
 var User = db.define('user', {
   name: Sequelize.STRING,
@@ -24,6 +24,6 @@ var User = db.define('user', {
     type: Sequelize.BOOLEAN,
     defaultValue: false
   }
-});
+})
 
-module.exports = User;
+module.exports = User

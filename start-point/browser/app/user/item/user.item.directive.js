@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 app.directive('userItem', function () {
   return {
@@ -11,21 +11,21 @@ app.directive('userItem', function () {
       afterRemove: '&'
     },
     link: function (scope, elem, attrs) {
-      if (attrs.hasOwnProperty('isForm')) scope.isForm = true;
-      if (attrs.hasOwnProperty('iconClick')) scope.hasIconClick = true;
+      if (attrs.hasOwnProperty('isForm')) scope.isForm = true
+      if (attrs.hasOwnProperty('iconClick')) scope.hasIconClick = true
       if (!scope.isForm) {
-        var hasInitialized = false;
+        var hasInitialized = false
         scope.$watch('user', function () {
-          if (!hasInitialized) hasInitialized = true;
-          else scope.user.save();
-        }, true);
+          if (!hasInitialized) hasInitialized = true
+          else scope.user.save()
+        }, true)
       }
       scope.removeUser = function () {
         scope.user.destroy()
-        .then(function () {
-          scope.afterRemove();
-        });
-      };
+          .then(function () {
+            scope.afterRemove()
+          })
+      }
     }
   }
-});
+})

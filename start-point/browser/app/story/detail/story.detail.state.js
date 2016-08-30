@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 app.config(function ($stateProvider) {
   $stateProvider.state('story', {
@@ -7,12 +7,12 @@ app.config(function ($stateProvider) {
     controller: 'StoryDetailCtrl',
     resolve: {
       story: function (Story, $stateParams) {
-        var story = new Story({id: $stateParams.id});
-        return story.fetch();
+        var story = new Story({id: $stateParams.id})
+        return story.fetch()
       },
       users: function (User) {
-        return User.fetchAll();
+        return User.fetchAll()
       }
     }
-  });
-});
+  })
+})

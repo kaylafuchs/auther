@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-var app = angular.module('auther', ['ui.router']);
+var app = angular.module('auther', ['ui.router'])
 
 app.config(function ($urlRouterProvider, $locationProvider) {
-  $locationProvider.html5Mode(true);
-  $urlRouterProvider.otherwise('/');
-});
+  $locationProvider.html5Mode(true)
+  $urlRouterProvider.otherwise('/')
+})
