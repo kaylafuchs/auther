@@ -50,10 +50,12 @@ app.post('/login', function(req, res, next) {
 
 app.post('/logout', function(req, res, next) {
   req.session.userId = null
-  console.log('user id', req.session.userId)
+  req.session.destroy();
+  console.log('session DESTROYED!!!! bwahahah')
   res.sendStatus(204)
 })
 
+<<<<<<< HEAD
 app.use(passport.initialize());
 app.use(passport.session())
 app.get('/auth/google/callback',
@@ -116,6 +118,14 @@ app.use(function (req, res, next) {
 });
 
 
+=======
+app.get('/auth/me', function (req, res, next) {
+  User.findById(req.session.userId)
+  .then(function(result){
+    res.send(result.email);
+  })
+})
+>>>>>>> acd7b838dc94dfb3db9c0843ca08d59620ce065f
 
 var validFrontendRoutes = ['/', '/stories', '/users', '/stories/:id', '/users/:id', '/signup', '/login']
 var indexPath = path.join(__dirname, '..', '..', 'public', 'index.html')

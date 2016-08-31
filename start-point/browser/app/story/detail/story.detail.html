@@ -2,7 +2,7 @@
   <ul class="list-inline large-font">
     <li>
       <span
-        contenteditable
+        contenteditable="{{currentUser() !== null}}"
         class="large-font"
         ng-model="story.title"
         ng-model-options="{debounce: 500}">
@@ -19,7 +19,7 @@
   </ul>
   <br>
   <p
-    contenteditable
+    contenteditable="{{currentUser() !== null}}"
     ng-model="story.paragraphs"
     ng-model-options="{debounce: 500}"
     ng-list="<br><br>"
