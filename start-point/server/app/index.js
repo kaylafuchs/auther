@@ -46,8 +46,16 @@ app.post('/login', function (req, res, next) {
 
 app.post('/logout', function (req, res, next) {
   req.session.userId = null
-  console.log('user id', req.session.userId)
+  req.session.destroy();
+  console.log('session DESTROYED!!!! bwahahah')
   res.sendStatus(204)
+})
+
+app.get('/auth/me', function (req, res, next) {
+  User.findById(req.session.userId)
+  .then(function(result){
+    res.send(result.email);
+  })
 })
 
 var validFrontendRoutes = ['/', '/stories', '/users', '/stories/:id', '/users/:id', '/signup', '/login']
