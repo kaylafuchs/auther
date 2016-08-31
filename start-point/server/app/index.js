@@ -10,41 +10,45 @@ app.use(require('./logging.middleware'))
 app.use(require('./request-state.middleware'))
 
 app.use(session({
-	secret: 'lolwut'
+  secret: 'lolwut'
 }))
 
 app.use(function (req, res, next) {
-  console.log('session', req.session);
-  next();
-});
+  console.log('session', req.session)
+  next()
+})
 
 app.use(require('./statics.middleware'))
 
 app.use('/api', function (req, res, next) {
-  if (!req.session.counter) req.session.counter = 0;
-  console.log('request body', ++req.session.counter);
-  next();
-});
+  if (!req.session.counter) req.session.counter = 0
+  console.log('request body', ++req.session.counter)
+  next()
+})
 
 app.use('/api', require('../api/api.router'))
-
 
 app.post('/login', function (req, res, next) {
   User.findOne({
     where: req.body
   })
-  .then(function (user) {
-    if (!user) {
-      res.sendStatus(401);
-    } else {
-      req.session.userId = user.id;
-      console.log("user id",req.session.userId);
-      res.sendStatus(204);
-    }
-  })
-  .catch(next);
-});
+    .then(function (user) {
+      if (!user) {
+        res.sendStatus(401)
+      } else {
+        req.session.userId = user.id
+        console.log('user id', req.session.userId)
+        res.sendStatus(204)
+      }
+    })
+    .catch(next)
+})
 
+app.post('/logout', function (req, res, next) {
+  req.session.userId = null
+  console.log('user id', req.session.userId)
+  res.sendStatus(204)
+})
 
 var validFrontendRoutes = ['/', '/stories', '/users', '/stories/:id', '/users/:id', '/signup', '/login']
 var indexPath = path.join(__dirname, '..', '..', 'public', 'index.html')
@@ -55,9 +59,5 @@ validFrontendRoutes.forEach(function (stateRoute) {
 })
 
 app.use(require('./error.middleware'))
-
-
-
-
 
 module.exports = app
