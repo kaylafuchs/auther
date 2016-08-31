@@ -11,6 +11,7 @@ var User = db.define('user', {
     defaultValue: '/images/default-photo.jpg'
   },
   phone: Sequelize.STRING,
+  googleId: Sequelize.STRING,
   email: {
     type: Sequelize.STRING,
     allowNull: false,

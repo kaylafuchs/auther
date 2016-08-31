@@ -2,7 +2,10 @@
 
 var app = angular.module('auther', ['ui.router'])
 
-app.config(function ($urlRouterProvider, $locationProvider) {
+app.config(function($urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true)
+  $urlRouterProvider.when('/auth/:provider', function() {
+    window.location.reload();
+  });
   $urlRouterProvider.otherwise('/')
 })
